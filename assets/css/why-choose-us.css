@@ -30,9 +30,6 @@
   padding: 10px 12px;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #ffffff26;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #171c1f, #211416);
   text-align: center;
 }
 .scs-choose__badge img { display: block; width: 48px; height: 48px; margin-bottom: 6px; object-fit: contain; }
