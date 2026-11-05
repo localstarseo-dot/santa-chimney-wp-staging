@@ -1,0 +1,10 @@
+{
+  "name": "santa-chimney-wp-staging",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/serve.mjs",
+    "validate": "node --check assets/js/site.js && node --check assets/js/animation-controller.js && node --check assets/js/santa-standard.js && node --check assets/js/google-reviews.js && node --check scripts/build.mjs && node --check scripts/serve.mjs"
+  }
+}

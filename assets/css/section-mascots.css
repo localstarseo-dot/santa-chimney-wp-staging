@@ -1,0 +1,85 @@
+.scs-mascot-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 3rem);
+  margin-bottom: 1.75rem;
+}
+.scs-mascot-feature > header,
+#sweeping-process .scs-mascot-feature > .scs-lp__section-head {
+  max-width: none;
+  margin: 0;
+}
+.scs-mascot-feature .scs-section-mascot {
+  display: block;
+  width: 150px;
+  height: 170px;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 10px 12px rgba(0,0,0,.12));
+}
+@media (prefers-reduced-motion: no-preference) {
+  .scs-section-mascot { animation: scsMascotFloat 6s ease-in-out infinite; }
+  #scs-reviews .scs-section-mascot { animation-delay: -2s; }
+  #sweeping-service-areas .scs-section-mascot { animation-delay: -4s; }
+  @keyframes scsMascotFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+}
+/* Keep the process introduction centered independently of its mascot. */
+#sweeping-process .scs-mascot-feature {
+  position: relative;
+  display: block;
+}
+#sweeping-process .scs-mascot-feature > .scs-lp__section-head {
+  width: min(100%, 760px);
+  margin-inline: auto;
+  text-align: center;
+}
+#sweeping-process .scs-mascot-feature .scs-section-mascot {
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  width: clamp(90px, 10vw, 140px);
+  height: 160px;
+}
+/* Stack before a mascot can crowd a tablet heading. */
+@media (max-width: 1200px) {
+  #sweeping-process .scs-mascot-feature .scs-section-mascot {
+    position: static;
+    width: 110px;
+    height: 125px;
+    margin: 1.25rem auto 0;
+  }
+}
+@media (max-width: 900px) {
+  .scs-mascot-feature {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+  .scs-mascot-feature .scs-section-mascot {
+    width: 100px;
+    height: 110px;
+    justify-self: center;
+  }
+}
+
+/* Keep the reviews mascot alongside its introduction on smaller screens. */
+@media (max-width: 900px) {
+  #scs-reviews .scs-mascot-feature {
+    grid-template-columns: minmax(0, 1fr) 80px;
+    align-items: start;
+    gap: .75rem;
+    margin-bottom: 1.5rem;
+  }
+  #scs-reviews .scs-mascot-feature .scs-section-mascot {
+    width: 80px;
+    height: 110px;
+    margin-top: 1.5rem;
+  }
+  #scs-reviews .scs-google-reviews__header {
+    min-width: 0;
+  }
+}

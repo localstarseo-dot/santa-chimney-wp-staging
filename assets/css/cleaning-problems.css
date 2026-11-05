@@ -1,0 +1,202 @@
+/* Cleaning concern cards */
+#cleaning-problems {
+  --repair-red: #bb1b1c;
+  --repair-ink: #17191a;
+  --repair-muted: #535c61;
+  --repair-line: #dededb;
+  width: 100%;
+  max-width: 100%;
+  margin-inline: 0;
+  padding-block: clamp(48px, 6vw, 80px);
+  scroll-margin-top: 160px;
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(rgba(11, 15, 17, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 15, 17, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: var(--repair-ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+#cleaning-problems,
+#cleaning-problems *,
+#cleaning-problems *::before,
+#cleaning-problems *::after {
+  box-sizing: border-box;
+}
+#cleaning-problems .sc-repair-container {
+  width: min(1200px, calc(100% - 48px));
+  margin-inline: auto;
+}
+#cleaning-problems .sc-repair-heading {
+  max-width: 720px;
+  margin: 0 0 30px;
+}
+#cleaning-problems .sc-repair-eyebrow {
+  margin: 0 0 10px;
+  color: var(--repair-red);
+  font-size: 11px;
+  line-height: 1.5;
+  font-weight: 750;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+#cleaning-problems .sc-repair-heading h2 {
+  margin: 0;
+  color: var(--repair-ink);
+  font-family: inherit;
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+#cleaning-problems .sc-repair-heading > p:not(.sc-repair-eyebrow) {
+  max-width: 600px;
+  margin: 14px 0 0;
+  color: var(--repair-muted);
+  font-size: 16px;
+  line-height: 1.65;
+}
+#cleaning-problems .sc-repair-problems {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+#cleaning-problems .sc-repair-problem {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  min-width: 0;
+  min-height: 156px;
+  margin: 0;
+  padding: 24px;
+  align-items: center;
+  gap: 18px;
+  border: 1px solid #e6e1da;
+  border-radius: 16px;
+  background: #fff;
+  color: var(--repair-ink);
+  text-decoration: none;
+  box-shadow: none;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease;
+}
+#cleaning-problems .sc-repair-problem::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--repair-red);
+  content: "";
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 220ms ease;
+}
+#cleaning-problems .sc-repair-problem > div { min-width: 0; }
+#cleaning-problems .sc-repair-problem:hover {
+  border-color: var(--repair-red);
+  background: #fffdfb;
+  color: var(--repair-ink);
+  text-decoration: none;
+}
+#cleaning-problems .sc-repair-problem:focus-visible {
+  outline: 3px solid #da9b35;
+  outline-offset: 4px;
+}
+#cleaning-problems .sc-repair-problem img {
+  display: block;
+  width: 68px;
+  height: 68px;
+  flex: 0 0 68px;
+  margin: 0;
+  object-fit: contain;
+  padding: 10px;
+  border: 1px solid #eeeae5;
+  border-radius: 14px;
+  background: #f7f6f3;
+  transition: transform 220ms ease, background-color 220ms ease;
+}
+#cleaning-problems .sc-repair-problem h3 {
+  margin: 0 0 5px;
+  color: var(--repair-ink);
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+}
+#cleaning-problems .sc-repair-problem p {
+  margin: 0;
+  color: var(--repair-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+#cleaning-problems .sc-repair-text-link {
+  display: inline-flex;
+  min-height: 32px;
+  margin-top: 5px;
+  align-items: center;
+  gap: 12px;
+  color: var(--repair-red);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.4;
+  text-decoration: none;
+}
+#cleaning-problems .sc-repair-text-link > span {
+  transition: transform 220ms ease;
+}
+#cleaning-problems .sc-repair-problem:focus-visible {
+  border-color: var(--repair-red);
+  background: linear-gradient(135deg, #fff, #fff6f0);
+  box-shadow: 0 18px 36px rgba(23, 25, 26, 0.12), 0 3px 8px rgba(187, 27, 28, 0.06);
+}
+#cleaning-problems .sc-repair-problem:focus-visible::before {
+  transform: scaleY(1);
+}
+@media (hover: hover) and (pointer: fine) {
+  #cleaning-problems .sc-repair-problem:hover {
+    transform: translateY(-4px);
+    background: linear-gradient(135deg, #fff, #fff6f0);
+    box-shadow: 0 18px 36px rgba(23, 25, 26, 0.12), 0 3px 8px rgba(187, 27, 28, 0.06);
+  }
+  #cleaning-problems .sc-repair-problem:hover::before { transform: scaleY(1); }
+  #cleaning-problems .sc-repair-problem:is(:hover, :focus-visible) img {
+    transform: scale(1.06);
+    background: #fae9e1;
+    border-color: #efd6cb;
+  }
+  #cleaning-problems .sc-repair-problem:hover .sc-repair-text-link > span {
+    transform: translateX(4px);
+  }
+}
+#cleaning-problems .sc-repair-problem:hover .sc-repair-text-link {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@media (max-width: 1050px) {
+  #cleaning-problems .sc-repair-problem { padding: 18px; gap: 12px; }
+  #cleaning-problems .sc-repair-problem img { width: 48px; height: 48px; flex-basis: 48px; }
+}
+@media (max-width: 768px) {
+  #cleaning-problems .sc-repair-container { width: calc(100% - 32px); }
+  #cleaning-problems .sc-repair-problems { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #cleaning-problems .sc-repair-problem { min-height: 144px; }
+}
+@media (max-width: 640px) {
+  #cleaning-problems { padding-block: 44px; }
+  #cleaning-problems .sc-repair-heading { margin-bottom: 24px; }
+  #cleaning-problems .sc-repair-heading h2 { font-size: 28px; }
+  #cleaning-problems .sc-repair-heading > p:not(.sc-repair-eyebrow) { font-size: 14px; }
+  #cleaning-problems .sc-repair-problems { grid-template-columns: 1fr; gap: 12px; }
+  #cleaning-problems .sc-repair-problem { min-height: 120px; padding: 16px 20px; }
+  #cleaning-problems .sc-repair-problem img { width: 56px; height: 56px; flex-basis: 56px; }
+  #cleaning-problems .sc-repair-problem h3 { font-size: 17px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #cleaning-problems .sc-repair-problem,
+  #cleaning-problems .sc-repair-problem::before,
+  #cleaning-problems .sc-repair-problem img,
+  #cleaning-problems .sc-repair-text-link > span { transition: none; }
+  #cleaning-problems .sc-repair-problem:hover,
+  #cleaning-problems .sc-repair-problem:hover img,
+  #cleaning-problems .sc-repair-problem:hover .sc-repair-text-link > span { transform: none; }
+}

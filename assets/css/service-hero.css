@@ -1,0 +1,769 @@
+/* Centered shared service hero */
+.scs-service-hero.sc-repair-hero .sc-repair-hero__layout {
+  grid-template-columns: minmax(0, 760px);
+  justify-content: center;
+  text-align: center;
+}
+.scs-service-hero.sc-repair-hero .sc-ads-hero__title,
+.scs-service-hero.sc-repair-hero .sc-ads-hero__copy,
+.scs-service-hero.sc-repair-hero .sc-ads-hero__eyebrow {
+  margin-inline: auto;
+  text-align: center;
+}
+.scs-service-hero.sc-repair-hero .sc-ads-trust {
+  justify-items: center;
+  text-align: center;
+}
+.scs-service-hero.sc-repair-hero .sc-ads-trust__reviews,
+.scs-service-hero.sc-repair-hero .sc-ads-trust__credentials-row {
+  justify-content: center;
+  grid-template-columns: minmax(0, 1fr);
+}
+.scs-service-hero.sc-repair-hero .sc-ads-trust__badges {
+  justify-content: center;
+}
+.scs-service-hero.sc-repair-hero .sc-ads-hero__actions {
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+  .scs-service-hero.sc-repair-hero .sc-repair-hero__layout {
+    grid-template-columns: minmax(0, min(640px, 60%));
+    justify-content: start;
+    text-align: left;
+  }
+  .scs-service-hero.sc-repair-hero .sc-ads-hero__title,
+  .scs-service-hero.sc-repair-hero .sc-ads-hero__copy,
+  .scs-service-hero.sc-repair-hero .sc-ads-hero__eyebrow,
+  .scs-service-hero.sc-repair-hero .sc-ads-hero__actions {
+    margin-inline: 0;
+    text-align: left;
+  }
+  .scs-service-hero.sc-repair-hero .sc-ads-trust {
+    justify-items: start;
+    text-align: left;
+  }
+  .scs-service-hero.sc-repair-hero .sc-ads-trust__reviews,
+  .scs-service-hero.sc-repair-hero .sc-ads-trust__credentials-row,
+  .scs-service-hero.sc-repair-hero .sc-ads-trust__badges {
+    justify-content: start;
+  }
+}
+
+@media (min-width: 1024px) {
+  .scs-service-hero.sc-repair-hero .sc-ads-trust {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas: "badges reviews";
+    gap: 24px;
+    align-items: center;
+  }
+  .scs-service-hero.sc-repair-hero .sc-ads-trust__reviews {
+    gap: 10px;
+  }
+  .scs-service-hero.sc-repair-hero .sc-ads-trust__badges {
+    gap: 10px;
+  }
+  .scs-service-hero.sc-repair-hero .sc-ads-trust__platform--google {
+    max-width: 88px;
+  }
+  .scs-service-hero.sc-repair-hero .sc-ads-trust__platform--yelp {
+    max-width: 64px;
+  }
+  .scs-service-hero.sc-repair-hero .sc-ads-trust__reviewers img {
+    width: 30px;
+    height: 30px;
+    flex-basis: 30px;
+  }
+}
+
+.scs-service-hero.sc-repair-hero .sc-ads-hero__eyebrow {
+  color: #f0b866;
+  gap: 12px;
+  justify-content: flex-start;
+}
+.scs-service-hero.sc-repair-hero .sc-ads-hero__eyebrow::before {
+  display: block;
+  width: 24px;
+  height: 2px;
+  flex: 0 0 24px;
+  background: linear-gradient(90deg, #bb1b1c, #f0b866);
+  content: "";
+}
+.sc-service-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 26px;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+.sc-service-breadcrumb a { color: #d5d8da; text-decoration: none; }
+.sc-service-breadcrumb > span { color: #f0b866; }
+.sc-service-breadcrumb a:focus-visible { outline: 2px solid #f0b866; outline-offset: 4px; }
+@media (max-width: 1023px) {
+  .sc-service-breadcrumb { justify-content: center; }
+}
+
+/* HERO WRAPPER */
+
+.scs-service-hero.sc-repair-hero {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 100%;
+  margin-inline: 0;
+  padding: clamp(50.4px, 4.5vw, 72px) 0;
+  overflow: hidden;
+  scroll-margin-top: 160px;
+  background: #17191a;
+  color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Arial, sans-serif;
+}
+
+.sc-repair-hero,
+.sc-repair-hero *,
+.sc-repair-hero *::before,
+.sc-repair-hero *::after {
+  box-sizing: border-box;
+}
+
+.scs-service-hero.sc-repair-hero::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(7, 10, 12, .92) 0%,
+    rgba(7, 10, 12, .84) 48%,
+    rgba(7, 10, 12, .42) 100%
+  );
+  content: "";
+  pointer-events: none;
+}
+
+/* FADING BACKGROUND */
+
+.sc-repair-hero .sc-hero-slideshow {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sc-repair-hero .sc-hero-slideshow__slide {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1000ms ease-in-out;
+}
+
+.sc-repair-hero .sc-hero-slideshow__slide.is-active {
+  z-index: 2;
+  opacity: 1;
+}
+
+/* Keep the outgoing photo beneath the incoming fade. */
+.sc-repair-hero .sc-hero-slideshow__slide.is-leaving {
+  z-index: 1;
+  opacity: 1;
+}
+
+/* CONTENT */
+
+.sc-repair-hero .sc-repair-hero__layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: min(1200px, calc(100% - 64px));
+  margin-inline: auto;
+  grid-template-columns: minmax(0, min(640px, 60%));
+  grid-template-areas: "copy" "trust";
+  align-items: start;
+  gap: 28px;
+  text-align: left;
+}
+
+.sc-repair-hero .sc-repair-hero__copy {
+  grid-area: copy;
+  min-width: 0;
+}
+
+.sc-repair-hero .sc-ads-hero__eyebrow {
+  display: flex;
+  width: fit-content;
+  margin: 0 0 18px;
+  align-items: center;
+  justify-content: center;
+  color: #ff4d4f;
+  font-size: clamp(.72rem, 1vw, .84rem);
+  font-weight: 800;
+  letter-spacing: .13em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.sc-repair-hero .sc-ads-hero__eyebrow::before,
+.sc-repair-hero .sc-ads-hero__eyebrow::after {
+  display: none;
+}
+
+.sc-repair-hero .sc-ads-hero__title {
+  max-width: 640px;
+  margin: 0;
+  color: #fff;
+  font-family: inherit;
+  font-size: clamp(44px, 4.3vw, 64px);
+  font-weight: 850;
+  letter-spacing: -.04em;
+  line-height: 1.06;
+  text-align: left;
+  text-wrap: balance;
+}
+
+.sc-repair-hero .sc-ads-hero__copy {
+  max-width: 600px;
+  margin: 18px 0 26px;
+  color: #e0e2e3;
+  font-size: 16px;
+  line-height: 1.65;
+  text-align: left;
+}
+
+/* GOOGLE, PEOPLE/RATING AND YELP */
+
+.sc-repair-hero .sc-ads-trust {
+  display: grid;
+  width: 100%;
+  margin: 0 0 24px;
+  padding: 0;
+  border: 0;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "badges" "reviews";
+  align-items: center;
+  gap: 18px;
+  text-align: left;
+}
+
+.sc-repair-hero .sc-ads-trust__reviews {
+  grid-area: reviews;
+  display: flex;
+  min-height: 42px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 18px;
+}
+
+.sc-repair-hero .sc-ads-trust__platform {
+  display: block;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, .26));
+}
+
+.sc-repair-hero .sc-ads-trust__platform--google {
+  max-width: 110px;
+  max-height: 44px;
+}
+
+.sc-repair-hero .sc-ads-trust__platform--yelp {
+  max-width: 88px;
+  max-height: 44px;
+}
+
+.sc-repair-hero .sc-ads-trust__rating {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.sc-repair-hero .sc-ads-trust__reviewers {
+  display: flex;
+  align-items: center;
+  padding-left: .4rem;
+}
+
+.sc-repair-hero .sc-ads-trust__reviewers img {
+  display: block;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  margin-left: -8px;
+  object-fit: cover;
+  object-position: center;
+  background: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .28);
+}
+
+.sc-repair-hero .sc-ads-trust__reviewers img:first-child {
+  margin-left: 0;
+}
+
+.sc-repair-hero .sc-ads-trust__rating-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+}
+
+.sc-repair-hero .sc-ads-trust__rating-line {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  white-space: nowrap;
+}
+
+.sc-repair-hero .sc-ads-trust__rating-line strong {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 850;
+  line-height: 1.1;
+}
+
+.sc-repair-hero .sc-ads-trust__stars {
+  color: #ebb305;
+  font-size: .95rem;
+  letter-spacing: .02em;
+  line-height: 1;
+}
+
+.sc-repair-hero .sc-ads-trust__rating-label {
+  color: rgba(255, 255, 255, .78);
+  font-size: .74rem;
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+/* TRUST BADGES AND PAYMENT CARDS */
+
+/* The payment label does not alter the logo centerline. */
+.sc-repair-hero .sc-ads-trust__credentials-row {
+  grid-area: badges;
+  display: grid;
+  width: 100%;
+  padding-top: 0;
+  grid-template-columns: auto auto;
+  justify-content: start;
+  align-items: center;
+  gap: 28px;
+}
+
+.sc-repair-hero .sc-ads-trust__badges {
+  display: flex;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  list-style: none;
+}
+
+.sc-repair-hero .sc-ads-trust__badges li {
+  display: grid;
+  width: 44px;
+  min-width: 0;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  place-items: center;
+}
+
+.sc-repair-hero .sc-ads-trust__badges img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 44px;
+  max-height: 44px;
+  margin: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, .28));
+}
+
+.sc-repair-hero .sc-ads-payments {
+  position: relative;
+  display: flex;
+  max-width: 100%;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.sc-repair-hero .sc-ads-payments__label {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  margin: 0;
+  color: rgba(255, 255, 255, .8);
+  font: 600 .75rem/16px system-ui, -apple-system,
+    "Segoe UI", Arial, sans-serif;
+  letter-spacing: .01em;
+  white-space: nowrap;
+}
+
+.sc-repair-hero .sc-ads-payments__cards {
+  display: grid;
+  width: 248px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .5rem;
+  list-style: none;
+}
+
+.sc-repair-hero .sc-ads-payments__cards li {
+  display: grid;
+  min-width: 0;
+  height: 34px;
+  margin: 0;
+  padding: 3px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .6);
+  border-radius: 4px;
+  background: #fff;
+  place-items: center;
+}
+
+.sc-repair-hero .sc-ads-payments__cards img {
+  display: block;
+  width: 100%;
+  height: 26px;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* CALL AND BOOKING BUTTONS */
+
+.sc-repair-hero .sc-ads-hero__actions {
+  display: grid;
+  width: 100%;
+  margin: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.sc-repair-hero .sc-ads-hero__button {
+  display: inline-flex;
+  width: 100%;
+  min-width: 0;
+  min-height: 56px;
+  margin: 0;
+  padding: 14px 16px;
+  align-items: center;
+  justify-content: center;
+  gap: .7rem;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  color: #fff;
+  font: 850 14px/1.4 system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.sc-repair-hero .sc-ads-hero__button svg {
+  display: block;
+  width: 21px;
+  height: 21px;
+  flex: 0 0 21px;
+}
+
+.sc-repair-hero .sc-ads-hero__button--call {
+  border-color: #e2343e;
+  background: #d9212f;
+  box-shadow: 0 8px 22px rgba(217, 33, 47, .24);
+}
+
+.sc-repair-hero .sc-ads-hero__button--booking {
+  border-color: rgba(255, 255, 255, .32);
+  border-width: 1px;
+  background: rgba(5, 8, 9, .45);
+  box-shadow: none;
+}
+
+.sc-repair-hero :is(
+  .sc-ads-hero__button,
+  .sc-ads-trust__rating
+):focus-visible {
+  outline: 3px solid #f0b866;
+  outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sc-repair-hero .sc-ads-hero__button:hover {
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .sc-repair-hero .sc-ads-hero__button--call:hover {
+    border-color: #ad171f;
+    background: #ad171f;
+    box-shadow: 0 17px 36px rgba(217, 33, 47, .4);
+  }
+
+  .sc-repair-hero .sc-ads-hero__button--booking:hover {
+    border-color: #f0b866;
+    background: rgba(18, 21, 23, .94);
+  }
+
+  .sc-repair-hero .sc-ads-trust__rating:hover {
+    color: #fff;
+    opacity: .9;
+    transform: translateY(-1px);
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 1023px) {
+  .scs-service-hero.sc-repair-hero {
+    padding: 46.8px 0 39.6px;
+  }
+
+  .scs-service-hero.sc-repair-hero::before {
+    background: rgba(7, 10, 12, .8);
+  }
+
+  .sc-repair-hero .sc-repair-hero__layout {
+    width: min(660px, calc(100% - 64px));
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+    text-align: center;
+  }
+
+  .sc-repair-hero .sc-ads-hero__eyebrow {
+    margin-inline: auto;
+  }
+
+  .sc-repair-hero .sc-ads-hero__title {
+    max-width: 560px;
+    margin-inline: auto;
+    font-size: clamp(40px, 4.3vw, 52px);
+    text-align: center;
+  }
+
+  .sc-repair-hero .sc-ads-hero__copy {
+    margin-inline: auto;
+    text-align: center;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+  .scs-service-hero.sc-repair-hero {
+    padding: 32.4px 0;
+  }
+
+  .sc-repair-hero .sc-repair-hero__layout {
+    width: calc(100% - 40px);
+    gap: 24px;
+  }
+
+  .sc-repair-hero .sc-ads-hero__title {
+    font-size: clamp(32px, 9vw, 42px);
+  }
+
+  .sc-repair-hero .sc-ads-hero__copy {
+    margin-block: 16px 22px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .sc-repair-hero .sc-ads-trust {
+    gap: 16px;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .sc-repair-hero .sc-ads-trust__reviews {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .sc-repair-hero .sc-ads-trust__platform--google {
+    width: 74px;
+  }
+
+  .sc-repair-hero .sc-ads-trust__platform--yelp {
+    width: 56px;
+  }
+
+  .sc-repair-hero .sc-ads-trust__rating {
+    gap: 6px;
+  }
+
+  .sc-repair-hero .sc-ads-trust__reviewers {
+    padding-left: 0;
+  }
+
+  .sc-repair-hero .sc-ads-trust__reviewers img {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+    margin-left: -9px;
+  }
+
+  .sc-repair-hero .sc-ads-trust__reviewers img:first-child {
+    margin-left: 0;
+  }
+
+  .sc-repair-hero .sc-ads-trust__rating-line {
+    gap: 4px;
+  }
+
+  .sc-repair-hero .sc-ads-trust__rating-line strong {
+    font-size: 14px;
+  }
+
+  .sc-repair-hero .sc-ads-trust__stars {
+    font-size: 11px;
+  }
+
+  .sc-repair-hero .sc-ads-trust__credentials-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .sc-repair-hero .sc-ads-trust__badges {
+    width: 100%;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .sc-repair-hero .sc-ads-trust__badges li {
+    width: clamp(28px, 8.5vw, 38px);
+    height: 40px;
+    flex: 0 1 auto;
+  }
+
+  .sc-repair-hero .sc-ads-trust__badges img {
+    max-width: 100%;
+    max-height: 40px;
+  }
+
+  .sc-repair-hero .sc-ads-payments {
+    width: 100%;
+  }
+
+  .sc-repair-hero .sc-ads-payments__label {
+    font-size: 11px;
+  }
+
+  .sc-repair-hero .sc-ads-payments__cards {
+    width: 100%;
+    gap: 5px;
+  }
+
+  .sc-repair-hero .sc-ads-payments__cards li {
+    height: 24px;
+    padding: 2px;
+  }
+
+  .sc-repair-hero .sc-ads-payments__cards img {
+    height: 18px;
+  }
+
+  .sc-repair-hero .sc-ads-hero__actions {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .sc-repair-hero .sc-ads-hero__eyebrow {
+    font-size: .65rem;
+    letter-spacing: .09em;
+  }
+
+  .sc-repair-hero .sc-ads-trust__platform--google,
+  .sc-repair-hero .sc-ads-trust__platform--yelp {
+    max-height: 40px;
+  }
+
+  .sc-repair-hero .sc-ads-trust__rating-label {
+    font-size: .72rem;
+  }
+
+  .sc-repair-hero .sc-ads-hero__button--call {
+    min-height: 58px;
+  }
+
+  .sc-repair-hero .sc-ads-hero__button svg {
+    width: 20px;
+    height: 20px;
+    flex-basis: 20px;
+  }
+}
+
+/* APPROVED CALL BUTTON PULSE */
+
+@media (prefers-reduced-motion: no-preference) {
+  .sc-repair-hero .sc-ads-hero__button--call {
+    animation: scHeroCallPulse 1.2s ease-in-out infinite;
+  }
+
+  .sc-repair-hero .sc-ads-hero__button--call:is(
+    :hover,
+    :focus-visible,
+    :active
+  ) {
+    animation: none;
+  }
+
+  @keyframes scHeroCallPulse {
+    0%, 72%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    82% {
+      transform: translateY(-1px) scale(1.018);
+    }
+    90% {
+      transform: translateY(0) scale(1);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sc-repair-hero .sc-hero-slideshow__slide,
+  .sc-repair-hero .sc-ads-hero__button,
+  .sc-repair-hero .sc-ads-trust__rating {
+    transition: none !important;
+  }
+
+  .sc-repair-hero .sc-ads-hero__button--call {
+    animation: none !important;
+  }
+}
