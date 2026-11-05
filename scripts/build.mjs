@@ -172,7 +172,9 @@ sweepingSections.splice(
   sweepingSections.findIndex(section => section.includes('id="our-work"')) + 1,
   0, customerReviews
 );
+sweepingSections.splice(1, 0, await readFile(resolve(root, "src/pages/chimney-sweeping/why-choose-us.html"), "utf8"));
 const sweepingDocument = constructionDocument
+  .replace('</head>', '<link rel="stylesheet" href="/assets/css/why-choose-us.css">\n</head>')
   .replace('</head>', '<link rel="stylesheet" href="/assets/css/booking.css">\n</head>')
   .replace('</head>', '<link rel="stylesheet" href="/assets/css/section-mascots.css">\n</head>')
   .replace('</head>', '<link rel="stylesheet" href="/assets/css/sweeping-process.css">\n</head>')
