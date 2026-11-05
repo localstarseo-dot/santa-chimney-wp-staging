@@ -112,7 +112,9 @@ await writeFile(resolve(root, "chimney-construction/index.html"), previewLinks(c
 const sweepingSections = await Promise.all([
   "hero", "signs", "process", "trust", "service-areas", "faq"
 ].map(name => readFile(resolve(root, `src/pages/chimney-sweeping/${name}.html`), "utf8")));
-sweepingSections[0] = adoptServiceHero(sweepingSections[0]);
+sweepingSections[0] = adoptServiceHero(sweepingSections[0])
+  .replace(/<nav class="sc-service-breadcrumb"[\s\S]*?<\/nav>/, "")
+  .replace(/<p class="sc-ads-hero__eyebrow">[\s\S]*?<\/p>/, "");
 let sweepingReviews = await readFile(resolve(root, "src/components/google-reviews.html"), "utf8");
 const reviewCards = [...sweepingReviews.matchAll(/<li class="scs-review10__card">[\s\S]*?<\/li>/g)].map(match => match[0]);
 if (reviewCards.length) {
