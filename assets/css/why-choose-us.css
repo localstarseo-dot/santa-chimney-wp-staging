@@ -1,5 +1,5 @@
 .scs-choose {
-  padding-block: clamp(40px, 5vw, 64px);
+  padding-block: clamp(24px, 3vw, 32px);
   background-color: #090b0d;
   background-image: linear-gradient(#ffffff09 1px, transparent 1px), linear-gradient(90deg, #ffffff09 1px, transparent 1px);
   background-size: 52px 52px;
@@ -10,16 +10,16 @@
 .scs-choose, .scs-choose * { box-sizing: border-box; }
 .scs-choose__container { width: min(1200px, calc(100% - 48px)); margin-inline: auto; }
 .scs-choose h2 {
-  margin: 0 0 28px;
+  margin: 0 0 16px;
   color: #fff;
-  font: 800 clamp(28px, 3.2vw, 40px)/1.2 system-ui, sans-serif;
+  font: 800 clamp(24px, 2.4vw, 30px)/1.2 system-ui, sans-serif;
   letter-spacing: -.03em;
   text-align: center;
 }
 .scs-choose__badges {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 16px;
+  gap: 12px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -27,18 +27,18 @@
 .scs-choose__badge {
   display: flex;
   min-width: 0;
-  padding: 24px 14px;
+  padding: 14px 12px;
   flex-direction: column;
   align-items: center;
   border: 1px solid #ffffff26;
-  border-radius: 14px;
+  border-radius: 10px;
   background: linear-gradient(135deg, #171c1f, #211416);
   text-align: center;
 }
-.scs-choose__badge img { display: block; width: 88px; height: 88px; margin-bottom: 18px; object-fit: contain; }
-.scs-choose__badge img.scs-choose__google { width: 120px; max-width: 100%; }
-.scs-choose__badge h3 { margin: 0; color: #fff; font: 750 16px/1.45 system-ui, sans-serif; }
-.scs-choose__badge a { display: inline-flex; min-height: 44px; align-items: center; gap: 6px; margin-top: 8px; color: #f0b866; font-size: 13px; text-underline-offset: 4px; }
+.scs-choose__badge img { display: block; width: 60px; height: 60px; margin-bottom: 10px; object-fit: contain; }
+.scs-choose__badge img.scs-choose__google { width: 96px; max-width: 100%; }
+.scs-choose__badge h3 { margin: 0; color: #fff; font: 750 14px/1.4 system-ui, sans-serif; }
+.scs-choose__badge a { display: inline-flex; min-height: 44px; align-items: center; gap: 6px; margin: 0 0 -8px; color: #f0b866; font-size: 12px; text-underline-offset: 4px; }
 .scs-choose__badge a:focus-visible { outline: 3px solid #f0b866; outline-offset: 4px; }
 @media (max-width: 900px) {
   .scs-choose__badges { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -46,7 +46,7 @@
 @media (max-width: 640px) {
   .scs-choose__container { width: calc(100% - 32px); }
   .scs-choose__badges { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .scs-choose__badge { padding: 20px 12px; }
+  .scs-choose__badge { padding: 12px 10px; }
   .scs-choose__badge:last-child { grid-column: 1 / -1; }
-  .scs-choose__badge h3 { font-size: 15px; }
+  .scs-choose__badge h3 { font-size: 14px; }
 }
