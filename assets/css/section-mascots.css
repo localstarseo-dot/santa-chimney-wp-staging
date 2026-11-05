@@ -90,6 +90,38 @@
 
 /* Keep the reviews mascot alongside its introduction on smaller screens. */
 @media (max-width: 900px) {
+  #sweeping-standard .scs-mascot-feature {
+    grid-template-columns: minmax(0, 1fr) clamp(72px, 19vw, 100px);
+    gap: 12px;
+    align-items: start;
+    margin-bottom: 24px;
+  }
+  #sweeping-standard .scs-mascot-feature > header { display: contents; }
+  #sweeping-standard .scs-mascot-feature h2 {
+    grid-column: 1 / -1;
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    font-size: clamp(26px, 5.8vw, 34px);
+    line-height: 1.2;
+    letter-spacing: -.03em;
+    text-wrap: balance;
+  }
+  #sweeping-standard .scs-mascot-feature .scs-lp__lead {
+    grid-column: 1;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  #sweeping-standard .scs-mascot-feature .scs-section-mascot {
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    height: 115px;
+    margin: 0;
+    align-self: start;
+  }
+}
+@media (max-width: 900px) {
   #scs-reviews .scs-mascot-feature {
     grid-template-columns: minmax(0, 1fr) 80px;
     align-items: start;

@@ -14,6 +14,7 @@
 .scs-booking .scs-lp__eyebrow { color: #f0b866; }
 .scs-booking__heading h2 { color: #fff; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
 .scs-booking__heading p { color: #c8ced1; line-height: 1.75; }
+.scs-booking__actions { justify-content: center; margin-top: 20px; }
 .scs-booking__frame {
   overflow: hidden;
   border: 1px solid #474e50;

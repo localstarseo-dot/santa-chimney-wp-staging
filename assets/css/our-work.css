@@ -264,6 +264,15 @@
 }
 
 /* Project details and CTA */
+.scs-inspection-page #our-work .sc-inspection-work-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid #474e50;
+  border-radius: 12px;
+}
 #our-work .sc-repair-project__body {
   flex: 1;
   margin-top: 20px;
@@ -428,7 +437,8 @@
   text-transform: uppercase;
 }
 
-#our-work .sc-work-story h4 {
+#our-work .sc-work-story h4,
+#our-work .sc-work-story h3 {
   margin: 0 0 22px;
   color: #fff;
   font-family: inherit;

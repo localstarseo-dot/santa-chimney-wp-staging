@@ -1,3 +1,32 @@
+/* Sweeping hero keeps the primary content centered at every viewport. */
+.scs-service-hero.scs-sweeping-hero.sc-repair-hero .sc-repair-hero__layout {
+  grid-template-columns: minmax(0, 760px);
+  grid-template-areas: "copy";
+  justify-content: center;
+  text-align: center;
+}
+.scs-service-hero.scs-sweeping-hero.sc-repair-hero .sc-ads-hero__title,
+.scs-service-hero.scs-sweeping-hero.sc-repair-hero .sc-ads-hero__copy,
+.scs-service-hero.scs-sweeping-hero.sc-repair-hero .sc-ads-hero__actions {
+  margin-inline: auto;
+  text-align: center;
+}
+.scs-service-hero.scs-sweeping-hero.sc-repair-hero .sc-ads-trust {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "reviews";
+  gap: 0;
+  margin-inline: auto;
+  justify-items: center;
+  text-align: center;
+}
+.scs-service-hero.scs-sweeping-hero.sc-repair-hero .sc-ads-trust__reviews {
+  justify-content: center;
+  justify-self: center;
+  margin-inline: auto;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
 /* Centered shared service hero */
 .scs-service-hero.sc-repair-hero .sc-repair-hero__layout {
   grid-template-columns: minmax(0, 760px);

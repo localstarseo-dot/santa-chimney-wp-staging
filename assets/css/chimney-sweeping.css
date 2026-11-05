@@ -16,7 +16,48 @@
   box-shadow: 0 12px 30px rgba(0,0,0,.18);
 }
 #sweeping-standard .scs-lp__card h3 { color: #fff; }
+#sweeping-standard .scs-sweep__trust .scs-lp__card h3 {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+#sweeping-standard .scs-sweep__trust .scs-lp__card h3::before {
+  content: "";
+  display: block;
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background-color: #173e2d;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236ee7a0' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E");
+  background-size: 18px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 #sweeping-standard .scs-lp__card p { color: #c8ced1; }
+#sweeping-standard .scs-sweep__trust .scs-lp__card {
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+#sweeping-standard .scs-sweep__trust .scs-lp__card h3::before {
+  transition: background-color 220ms ease, box-shadow 220ms ease;
+}
+@media (hover: hover) {
+  #sweeping-standard .scs-sweep__trust .scs-lp__card:hover {
+    transform: translateY(-5px);
+    border-color: #65d99a;
+    box-shadow: 0 14px 30px #0005, 0 0 20px #54d68e14;
+  }
+  #sweeping-standard .scs-sweep__trust .scs-lp__card:hover h3::before {
+    background-color: #21583e;
+    box-shadow: 0 0 0 4px #6ee7a014;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #sweeping-standard .scs-sweep__trust .scs-lp__card,
+  #sweeping-standard .scs-sweep__trust .scs-lp__card h3::before { transition: none; }
+  #sweeping-standard .scs-sweep__trust .scs-lp__card:hover { transform: none; }
+}
 
 /* Dark customer review cards match the surrounding black template. */
 #scs-reviews .scs-google-reviews__card {
@@ -92,7 +133,7 @@
 #sweeping-process .scs-scope-dark li::before {
   position: absolute;
   left: 1rem;
-  color: #ff9797;
+  color: #6ee7a0;
   content: "✓";
 }
 
@@ -325,6 +366,7 @@
 }
 
 #scs-service-stats.scs-stats-centered {
+  padding-block: clamp(16px, 2vw, 20px);
   color: #0b0f11;
   background: #fff;
   border-color: #eee9e4;
@@ -365,7 +407,7 @@
   margin-inline: auto;
 }
 #scs-service-stats.scs-stats-centered .scs-stats-pro__title {
-  margin-top: 0.75rem;
+  margin-top: 0;
 }
 #scs-service-stats.scs-stats-centered .scs-stats-pro__eyebrow {
   justify-content: center;
